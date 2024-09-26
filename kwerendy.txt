@@ -1,0 +1,14 @@
+-- Zapytanie 1: Wybiera pola nazwaPliku i podpis z tabeli zdjecia, sortując rosnąco według podpisu
+SELECT nazwaPliku, podpis FROM zdjecia ORDER BY podpis ASC;
+ 
+-- Zapytanie 2: Wybiera pola cel i dataWyjazdu z tabeli wycieczki dla wycieczek, które nie są dostępne
+SELECT cel, dataWyjazdu FROM wycieczki WHERE dostepna = 0;
+ 
+-- Zapytanie 3: Wybiera pola cel i cena z tabeli wycieczki oraz odpowiadające im pole podpis z tabeli zdjecia, dla wycieczek, których cena jest wyższa niż 1300 zł. Zapytanie wykorzystuje relację.
+SELECT wycieczki.cel, wycieczki.cena, zdjecia.podpis 
+FROM wycieczki 
+JOIN zdjecia ON wycieczki.id = zdjecia.wycieczka_id 
+WHERE wycieczki.cena > 1300;
+ 
+-- Zapytanie 4: Usuwa tabelę uzytkownik
+DROP TABLE uzytkownik;
